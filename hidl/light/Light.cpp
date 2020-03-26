@@ -56,14 +56,12 @@ Light::Light() {
                     std::bind(&Light::handleBacklight, this, std::placeholders::_1));
 #ifdef BUTTON_BRIGHTNESS_NODE
     mLights.emplace(Type::BUTTONS, std::bind(&Light::handleButtons, this, std::placeholders::_1));
-#endif /* BUTTON_BRIGHTNESS_NODE */
-#ifdef LED_BLINK_NODE
+#endif
     mLights.emplace(Type::BATTERY, std::bind(&Light::handleBattery, this, std::placeholders::_1));
     mLights.emplace(Type::NOTIFICATIONS,
                     std::bind(&Light::handleNotifications, this, std::placeholders::_1));
     mLights.emplace(Type::ATTENTION,
                     std::bind(&Light::handleAttention, this, std::placeholders::_1));
-#endif /* LED_BLINK_NODE */
 }
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
@@ -106,7 +104,6 @@ void Light::handleButtons(const LightState& state) {
 }
 #endif
 
-#ifdef LED_BLINK_NODE
 void Light::handleBattery(const LightState& state) {
     mBatteryState = state;
     setNotificationLED();
@@ -127,14 +124,14 @@ void Light::setNotificationLED() {
     LightState state;
 #ifdef LED_BLN_NODE
     bool bln = false;
-#endif /* LED_BLN_NODE */
+#endif
 
     if (mNotificationState.color & COLOR_MASK) {
         adjusted_brightness = LED_BRIGHTNESS_NOTIFICATION;
         state = mNotificationState;
 #ifdef LED_BLN_NODE
         bln = true;
-#endif /* LED_BLN_NODE */
+#endif
     } else if (mAttentionState.color & COLOR_MASK) {
         adjusted_brightness = LED_BRIGHTNESS_ATTENTION;
         state = mAttentionState;
@@ -166,18 +163,8 @@ void Light::setNotificationLED() {
     if (bln) {
         set(LED_BLN_NODE, (state.color & COLOR_MASK) ? 1 : 0);
     }
-#endif /* LED_BLN_NODE */
+#endif
 }
-
-uint32_t Light::calibrateColor(uint32_t color, int32_t brightness) {
-    uint32_t red = ((color >> 16) & 0xFF) * LED_ADJUSTMENT_R;
-    uint32_t green = ((color >> 8) & 0xFF) * LED_ADJUSTMENT_G;
-    uint32_t blue = (color & 0xFF) * LED_ADJUSTMENT_B;
-
-    return (((red * brightness) / 255) << 16) + (((green * brightness) / 255) << 8) +
-           ((blue * brightness) / 255);
-}
-#endif /* LED_BLINK_NODE */
 
 Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
     std::vector<Type> types;
@@ -196,6 +183,15 @@ uint32_t Light::rgbToBrightness(const LightState& state) {
 
     return ((77 * ((color >> 16) & 0xff)) + (150 * ((color >> 8) & 0xff)) + (29 * (color & 0xff))) >>
            8;
+}
+
+uint32_t Light::calibrateColor(uint32_t color, int32_t brightness) {
+    uint32_t red = ((color >> 16) & 0xFF) * LED_ADJUSTMENT_R;
+    uint32_t green = ((color >> 8) & 0xFF) * LED_ADJUSTMENT_G;
+    uint32_t blue = (color & 0xFF) * LED_ADJUSTMENT_B;
+
+    return (((red * brightness) / 255) << 16) + (((green * brightness) / 255) << 8) +
+           ((blue * brightness) / 255);
 }
 
 }  // namespace implementation
