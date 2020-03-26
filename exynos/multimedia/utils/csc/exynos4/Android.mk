@@ -39,5 +39,5 @@ LOCAL_ARM_MODE := arm
 
 LOCAL_STATIC_LIBRARIES :=
 LOCAL_SHARED_LIBRARIES := liblog libfimc libhwconverter
-
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_STATIC_LIBRARY)

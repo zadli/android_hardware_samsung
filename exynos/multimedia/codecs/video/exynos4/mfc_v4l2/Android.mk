@@ -9,6 +9,7 @@ LOCAL_COPY_HEADERS := \
 	include/SsbSipMfcApi.h
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES := \
 	dec/src/SsbSipMfcDecAPI.c \

@@ -21,6 +21,6 @@ LOCAL_C_INCLUDES := $(SEC_OMX_INC)/khronos \
 	$(SEC_OMX_INC)/sec \
 	$(SEC_OMX_TOP)/osal \
 	$(SEC_OMX_TOP)/component/common
-
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 

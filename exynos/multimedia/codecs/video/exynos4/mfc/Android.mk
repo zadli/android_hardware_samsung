@@ -11,6 +11,7 @@ LOCAL_COPY_HEADERS := \
 LOCAL_MODULE := libsecmfcapi
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES := \
 	dec/src/SsbSipMfcDecAPI.c \
@@ -50,6 +51,7 @@ LOCAL_COPY_HEADERS := \
 LOCAL_MODULE := libsecmfcdecapi
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES := \
 	dec/src/SsbSipMfcDecAPI.c
@@ -88,6 +90,7 @@ LOCAL_COPY_HEADERS := \
 LOCAL_MODULE := libsecmfcencapi
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES := \
 	enc/src/SsbSipMfcEncAPI.c

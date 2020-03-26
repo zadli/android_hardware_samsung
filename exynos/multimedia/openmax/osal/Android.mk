@@ -39,5 +39,5 @@ LOCAL_C_INCLUDES := $(SEC_OMX_INC)/khronos \
 	$(SEC_OMX_TOP)/osal \
 	$(SEC_OMX_COMPONENT)/common \
 	$(SEC_OMX_COMPONENT)/video/dec
-
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_STATIC_LIBRARY)

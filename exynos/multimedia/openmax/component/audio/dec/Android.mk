@@ -7,7 +7,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE := libSEC_OMX_Adec
 LOCAL_ARM_MODE := arm
 LOCAL_MODULE_TAGS := optional
-
+LOCAL_VENDOR_MODULE := true
 LOCAL_C_INCLUDES := $(SEC_OMX_INC)/khronos \
 	$(SEC_OMX_INC)/sec \
 	$(SEC_OMX_TOP)/osal \

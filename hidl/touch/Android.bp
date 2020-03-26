@@ -19,6 +19,8 @@ cc_binary {
     relative_install_path: "hw",
     // FIXME: this should be 'vendor: true' for modules that will eventually be
     // on AOSP.
+	vendor_available: true,
+	vendor: true,
     proprietary: true,
     srcs: [
         "GloveMode.cpp",

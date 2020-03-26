@@ -39,5 +39,5 @@ LOCAL_SHARED_LIBRARIES := libcutils libutils
 LOCAL_C_INCLUDES := $(SEC_OMX_INC)/khronos \
 	$(SEC_OMX_INC)/sec \
 	$(SEC_OMX_TOP)/osal
-
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)

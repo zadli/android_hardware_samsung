@@ -14,6 +14,7 @@ LOCAL_SRC_FILES := mkbootimg.c
 LOCAL_STATIC_LIBRARIES := libdtbimg libfdt libcrypto_static
 
 LOCAL_MODULE := mkdtbhbootimg
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_HOST_EXECUTABLE)
 

@@ -18,5 +18,6 @@ LOCAL_CFLAGS :=
 
 LOCAL_MODULE:= libsecril-client-sap
 LOCAL_PRELINK_MODULE := false
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)

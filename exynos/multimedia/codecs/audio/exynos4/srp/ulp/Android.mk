@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE := libsrpapi
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_ARM_MODE := arm
 
