@@ -16,7 +16,6 @@ cc_defaults {
     name: "livedisplay_samsung_exynos_defaults",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
-	vendor_available: true,
 	vendor: true,
     srcs: [
         "AdaptiveBacklight.cpp",
@@ -40,7 +39,6 @@ cc_defaults {
     name: "livedisplay_samsung_qcom_defaults",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
-	vendor_available: true,
 	vendor: true,
     srcs: [
         "AdaptiveBacklight.cpp",
